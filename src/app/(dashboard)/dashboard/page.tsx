@@ -9,7 +9,8 @@ import{
   Currency,
   Users
 }from "lucide-react";
-
+import { formatCurrency } from "@/lib/format";
+import Link from "next/link";
 
 const balances=[
   {currency:"USD",symbol:"$",amount:15840.50},
@@ -29,13 +30,7 @@ const transactions = [
 const recipientCount = 12;
 const newRecipientsThisMonth = 3;
 
-//currency formating
-const formatCurrency=(amount:number,currency:string)=>{
-  return new Intl.NumberFormat("en-US",{
-    style:"currency",
-    currency,
-  }).format(amount);
-}
+
 export default function Dashboard() {
   return(
     <div className="space-y-6">
@@ -98,10 +93,10 @@ export default function Dashboard() {
         <p className="text-sm text-pesa-slate mb-4">Manage your money easily</p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <button className="flex items-center justify-center gap-2 bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green-dark transition-colors cursor-pointer">
+          <Link href="/send-money" className="flex items-center justify-center gap-2 bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green-dark transition-colors cursor-pointer">
             <Send size={16} />
             Send money
-          </button>
+          </Link>
           <button className="flex items-center justify-center gap-2 border border-pesa-slate/20 text-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-cream transition-colors cursor-pointer">
             <Plus size={16} />
             Add money
