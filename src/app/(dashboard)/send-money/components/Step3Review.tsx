@@ -69,7 +69,7 @@ export default function Step3Review({
 
       <button
         onClick={onConfirm}
-        className="w-full bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green-dark transition-colors"
+        className="w-full bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-blue-900 cursor-pointer transition-colors"
       >
         ✓ Confirm and Send
       </button>

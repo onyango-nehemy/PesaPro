@@ -54,7 +54,7 @@ export default function Step2Recipient({
       <button
         onClick={onContinue}
         disabled={!isValid}
-        className="w-full bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-pesa-green-dark transition-colors"
+        className="w-full bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed hover:bg-blue-900 transition-colors"
       >
         Continue →
       </button>

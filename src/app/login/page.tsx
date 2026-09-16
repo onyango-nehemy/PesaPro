@@ -109,14 +109,14 @@ export default function LoginPage(){
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-pesa-green hover:bg-pesa-green-dark  transition-colors text-white font-medium rounded-lg py-2.5 text-sm cursor-pointer"
+                        className="w-full bg-pesa-green hover:bg-blue-900  transition-colors text-white font-medium rounded-lg py-2.5 text-sm cursor-pointer"
                     >Login</button>
                 </form>
                 <p className="text-sm text-pesa-slate text-center mt-6">
                     Don&apos;t have an account? {" "}
                     <Link
                         href="/signup"
-                        className="text-pesa-green font-medium hover:underline" 
+                        className="text-pesa-green font-medium hover:underline hover:text-blue-900" 
                     >Sign up</Link>
                 </p>
             </div>

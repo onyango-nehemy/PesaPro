@@ -413,7 +413,7 @@ export default function CardPage(){
                                 type="button"
                                 onClick={handleOrderCard}
                                 disabled={isSubmittingOrder || !isOrderFormValid}
-                                className="flex-1 bg-pesa-green text-white rounded-lg py-2 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                                className="flex-1 bg-pesa-green text-white rounded-lg py-2 text-sm font-medium disabled:opacity-50 hover:bg-blue-900 cursor-pointer disabled:cursor-not-allowed"
                             >
                                 {isSubmittingOrder ? "Ordering..." : "Order Now"}
                             </button>

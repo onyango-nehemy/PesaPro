@@ -56,7 +56,7 @@ export default function SendMoneyPage() {
     <div className="px-6 py-8">
       <button
         onClick={step === 1 ? undefined : goBack}
-        className="flex items-center gap-2 text-sm text-pesa-slate mb-4"
+        className="flex items-center gap-2 text-sm text-pesa-slate mb-4 cursor-pointer"
       >
         {step === 1 ? (
           <Link href="/dashboard" className="flex items-center gap-2">

@@ -93,19 +93,19 @@ export default function Dashboard() {
         <p className="text-sm text-pesa-slate mb-4">Manage your money easily</p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <Link href="/send-money" className="flex items-center justify-center gap-2 bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green-dark transition-colors cursor-pointer">
+          <Link href="/send-money" className="flex items-center justify-center gap-2 bg-pesa-green text-white rounded-lg py-2.5 text-sm font-medium hover:bg-blue-900 transition-colors cursor-pointer">
             <Send size={16} />
             Send money
           </Link>
-          <button className="flex items-center justify-center gap-2 border border-pesa-slate/20 text-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-cream transition-colors cursor-pointer">
+          <button className="flex items-center justify-center gap-2 border border-pesa-slate/20 text-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green hover:text-white transition-colors cursor-pointer">
             <Plus size={16} />
             Add money
           </button>
-          <button className="flex items-center justify-center gap-2 border border-pesa-slate/20 texts-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-cream cursor-pointer transition-colors">
+          <button className="flex items-center justify-center gap-2 border border-pesa-slate/20 texts-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green hover:text-white cursor-pointer transition-colors">
             <ArrowDownLeft />
             Request Money
           </button>
-          <button  className="flex items-center justify-center gap-2 border border-pesa-slate/20 text-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-cream transition-colors cursor-pointer">
+          <button  className="flex items-center justify-center gap-2 border border-pesa-slate/20 text-pesa-charcoal rounded-lg py-2.5 text-sm font-medium hover:bg-pesa-green hover:text-white transition-colors cursor-pointer">
             <UserPlus size={16} />
             Add Recipient
           </button>
