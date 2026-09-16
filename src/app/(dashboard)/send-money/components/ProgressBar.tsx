@@ -1,6 +1,6 @@
 export default function ProgressBar({ currentStep }: { currentStep: number }) {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 ">
       {[1, 2, 3].map((step) => (
         <div
           key={step}

@@ -66,12 +66,12 @@ export default function ConvertCurrencyPage(){
     const total=sendAmountNumber + fee;
 
     return(
-        <div className="max-w-6xl mx-auto ml-8">
+        <div className="px-6 py-8">
             <Link 
                 href="/dashboard"
                 className="flex items-center gap-2 text-sm text-pesa-slate mb-4"
             ><ArrowLeft size={16} />Back to dashboard</Link>
-            <h2 className="text-xl font-semibold text-pesa-charcoal">Convert Currency</h2>
+            <h2 className="text-2xl font-semibold text-pesa-charcoal">Convert Currency</h2>
             <p className="text-sm text-pesa-slate mb-6">Exchange between currencies at the mid-market rate with transparent fees</p>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

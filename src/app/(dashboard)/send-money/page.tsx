@@ -53,7 +53,7 @@ export default function SendMoneyPage() {
   const totalAmount = numericAmount + TRANSFER_FEE;
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="px-6 py-8">
       <button
         onClick={step === 1 ? undefined : goBack}
         className="flex items-center gap-2 text-sm text-pesa-slate mb-4"
@@ -74,7 +74,7 @@ export default function SendMoneyPage() {
 
       <ProgressBar currentStep={step} />
 
-      <div className="bg-white rounded-2xl border border-pesa-slate/15 p-6 mt-6">
+      <div className=" max-w-lg mx-auto  bg-white rounded-2xl border border-pesa-slate/15 p-6 mt-6">
         {step === 1 && (
           <Step1Amount
             data={data}

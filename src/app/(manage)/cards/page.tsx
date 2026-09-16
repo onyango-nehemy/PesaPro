@@ -126,13 +126,13 @@ export default function CardPage(){
 
 
     return(
-        <div className="max-w-4xl mx-auto">
+        <div className="px-6 py-8">
             <Link
                 href="/dashboard"
                 className="flex items-center gap-2 text-sm text-pesa-slate mb-4"
 
             ><ArrowLeft size={16}/> Back to dashboard</Link>
-            <h2 className="text-xl font-semibold text-pesa-charcoal">Cards</h2>
+            <h2 className="text-2xl font-semibold text-pesa-charcoal">Cards</h2>
             <p className="text-xs text-pesa-slate mb-6">Manage your WisePro debit cards</p>
 
             <div className="space-y-4 mb-3">
@@ -244,7 +244,7 @@ export default function CardPage(){
                     <button
                         type="button"
                         onClick={()=>setIsOrderModalOpen(true)}
-                        className="flex cursor-pointer hover:bg-blue-500 items-center gap-2 bg-pesa-green text-white text-sm rounded-lg px-4 py-2"
+                        className="flex cursor-pointer hover:bg-blue-900 items-center gap-2 bg-pesa-green text-white text-sm rounded-lg px-4 py-2"
                     >
                         <CreditCard size={14}/> Order Card
                     </button>
