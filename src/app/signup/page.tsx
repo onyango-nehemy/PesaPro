@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Eye, EyeOff } from "lucide-react"
 
+import { setUserName } from "@/lib/session";
+
 export default function SignupPage(){
     const router = useRouter();
 
@@ -73,8 +75,9 @@ export default function SignupPage(){
         if (hasErrors) return;
 
         console.log("Creating account:", form);
+        setUserName(form.fullname.trim());
 
-        // TODO: once a real backend exists, this becomes "check your email
+        // once a real backend exists, this becomes "check your email
         // to verify your account" instead of an immediate redirect.
         router.push("/kyc");
     }

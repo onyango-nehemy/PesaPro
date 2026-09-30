@@ -1,15 +1,16 @@
+"use client";
+
 import{
   Wallet,
   ArrowUpRight,
   ArrowDownLeft,
   Send,
   Plus,
-  ArrowDownToLine,
   UserPlus,
-  Currency,
   Users
 }from "lucide-react";
 import { formatCurrency } from "@/lib/format";
+import { useUserName } from "@/lib/session";
 import Link from "next/link";
 
 const balances=[
@@ -32,10 +33,13 @@ const newRecipientsThisMonth = 3;
 
 
 export default function Dashboard() {
+  const storedName = useUserName();
+  const firstName = storedName ? storedName.trim().split(" ")[0] : "there";
+
   return(
     <div className="space-y-6">
       <div>
-        <h1 className="text-xl font-semibold text-pesa-charcoal">Welcome back,Sarah!</h1>
+        <h1 className="text-xl font-semibold text-pesa-charcoal">Welcome back, {firstName}!</h1>
         <p className="text-sm text-pesa-slate">Here&apos;s what&apos;s happening with your account today.</p>
       </div>
       {/* Balances card grid and contents */}

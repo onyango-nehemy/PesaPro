@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Eye, EyeOff } from "lucide-react"
 
+import { setUserName } from "@/lib/session";
+
 const DEMO_EMAIL = "user@testing.com";
 const DEMO_PASSWORD = "password123";
 
@@ -59,6 +61,7 @@ export default function LoginPage(){
 
         // TODO: replace with a real auth request once the backend exists
         if (form.email === DEMO_EMAIL && form.password === DEMO_PASSWORD) {
+            setUserName("Demo User");
             router.push("/dashboard");
         } else {
             setFormError("Incorrect email or password.");
