@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import{
     LayoutDashboard,
     Send,
@@ -19,6 +19,7 @@ import{
     LogOut,
 
 }from "lucide-react"
+import { clearUserName } from "@/lib/session";
 
 const mainLinks=[
     {href:"/dashboard",label:"Dashboard",icon:LayoutDashboard},
@@ -91,10 +92,12 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps){
     const pathname = usePathname();
+    const router = useRouter();
 
     function handleLogout() {
-        console.log("Logging out...");
+        clearUserName();
         onClose();
+        router.push("/login");
     }
 
     return(
