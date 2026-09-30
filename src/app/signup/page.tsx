@@ -1,8 +1,12 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { Eye, EyeOff } from "lucide-react"
 
 export default function SignupPage(){
+    const router = useRouter();
+
     const [form,setForm]=useState({
         fullname:"",
         email:"",
@@ -16,6 +20,10 @@ export default function SignupPage(){
         password:"",
         confirmPassword:""
     });
+    // password visibility, independent per field
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
     //handle change
     const handleChange=(e: React.ChangeEvent<HTMLInputElement>)=>{
         const {name,value}=e.target;
@@ -65,11 +73,15 @@ export default function SignupPage(){
         if (hasErrors) return;
 
         console.log("Creating account:", form);
+
+        // TODO: once a real backend exists, this becomes "check your email
+        // to verify your account" instead of an immediate redirect.
+        router.push("/kyc");
     }
 
     return(
         <div className="min-h-screen flex items-center justify-center bg-pesa-cream px-4">
-            <div className="w-full max-w-sm bg-white rounded-2xl shadow-sm p-8">
+            <div className="w-full max-w-md bg-white rounded-2xl shadow-sm p-8">
                 <div className="flex flex-col items-center mb-6">
                     <div className="w-12 h-12 rounded-xl bg-pesa-green flex items-center justify-center text-white font-bold text-xl mb-4">
                         P
@@ -124,19 +136,29 @@ export default function SignupPage(){
                         <label htmlFor="password" className="block text-sm font-medium text-pesa-charcoal mb-1">
                             Password
                         </label>
-                        <input 
-                            id="password"
-                            name="password"
-                            type="password"
-                            onChange={handleChange}
-                            value={form.password}
-                            placeholder="........."
-                            className={`w-full rounded-lg border px-3 py-2 outline-none focus:ring-2 ${
-                                errors.password
-                                ? "border-red-400 focus:ring-red-400"
-                                : "border-pesa-slate/30 focus:ring-pesa-green"
-                            }`}
-                        />
+                        <div className="relative">
+                            <input 
+                                id="password"
+                                name="password"
+                                type={showPassword ? "text" : "password"}
+                                onChange={handleChange}
+                                value={form.password}
+                                placeholder="........."
+                                className={`w-full rounded-lg border px-3 py-2 pr-10 outline-none focus:ring-2 ${
+                                    errors.password
+                                    ? "border-red-400 focus:ring-red-400"
+                                    : "border-pesa-slate/30 focus:ring-pesa-green"
+                                }`}
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                className="absolute cursor-pointer right-3 top-1/2 -translate-y-1/2 text-pesa-slate hover:text-pesa-charcoal"
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                            >
+                                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                            </button>
+                        </div>
                         {errors.password &&(
                             <p className="text-xs text-red-500 mt-1">{errors.password}</p>
                         )}
@@ -145,19 +167,29 @@ export default function SignupPage(){
                         <label htmlFor="confirmPasword" className="block text-sm font-medium text-pesa-charcoal mb-1">
                             Confirm Password
                         </label>
-                        <input 
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            type="password"
-                            onChange={handleChange}
-                            value={form.confirmPassword}
-                            placeholder="........"
-                            className={`w-full border rounded-lg px-3 py-2 outline-none focus:ring-2 ${
-                                errors.confirmPassword
-                                ? "border-red-400 focus:ring-red-400"
-                                : "border-pesa-slate/30 focus:ring-pesa-green"
-                            }`}
-                        />
+                        <div className="relative">
+                            <input 
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                type={showConfirmPassword ? "text" : "password"}
+                                onChange={handleChange}
+                                value={form.confirmPassword}
+                                placeholder="........"
+                                className={`w-full border rounded-lg px-3 py-2 pr-10 outline-none focus:ring-2 ${
+                                    errors.confirmPassword
+                                    ? "border-red-400 focus:ring-red-400"
+                                    : "border-pesa-slate/30 focus:ring-pesa-green"
+                                }`}
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowConfirmPassword((prev) => !prev)}
+                                className="absolute right-3 cursor-pointer top-1/2 -translate-y-1/2 text-pesa-slate hover:text-pesa-charcoal"
+                                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                            >
+                                {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                            </button>
+                        </div>
                         {errors.confirmPassword &&(
                             <p className="text-xs text-red-500 mt-1">{errors.confirmPassword}</p>
                         )}
