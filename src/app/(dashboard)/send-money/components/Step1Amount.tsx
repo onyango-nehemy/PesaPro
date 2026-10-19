@@ -34,12 +34,12 @@ export default function Step1Amount({
           value={data.sendAmount}
           onChange={(e) => updateData({ sendAmount: e.target.value })}
           placeholder="0.00"
-          className="flex-1 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-pesa-green"
+          className="min-w-0 flex-1 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-pesa-green"
         />
         <select
           value={data.sendCurrency}
           onChange={(e) => updateData({ sendCurrency: e.target.value })}
-          className="rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm"
+          className="w-24 shrink-0 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm"
         >
           <option value="USD">USD</option>
         </select>
@@ -51,12 +51,12 @@ export default function Step1Amount({
           type="text"
           readOnly
           value={recipientGets.toFixed(2)}
-          className="flex-1 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm bg-pesa-cream text-pesa-slate"
+          className="min-w-0 flex-1 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm bg-pesa-cream text-pesa-slate"
         />
         <select
           value={data.recipientCurrency}
           onChange={(e) => updateData({ recipientCurrency: e.target.value })}
-          className="rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm"
+          className="w-24 shrink-0 rounded-lg border border-pesa-slate/30 px-3 py-2 text-sm"
         >
           <option value="EUR">EUR</option>
         </select>

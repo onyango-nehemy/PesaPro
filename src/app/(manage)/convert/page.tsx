@@ -66,7 +66,7 @@ export default function ConvertCurrencyPage(){
     const total=sendAmountNumber + fee;
 
     return(
-        <div className="px-6 py-8">
+        <div className="px-2 py-4 md:px-6 md:py-8">
             <Link 
                 href="/dashboard"
                 className="flex items-center gap-2 text-sm text-pesa-slate mb-4"
@@ -74,11 +74,11 @@ export default function ConvertCurrencyPage(){
             <h2 className="text-2xl font-semibold text-pesa-charcoal">Convert Currency</h2>
             <p className="text-sm text-pesa-slate mb-6">Exchange between currencies at the mid-market rate with transparent fees</p>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-10">
                 {/**left side column */}
                 <div className="lg:col-span-2 space-y-4">
                     {/**currency converter section card */}
-                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-6">
+                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-4 sm:p-6">
                         <h2 className="text-sm text-pesa-charcoal font-semibold">Currency Converter</h2>
                         <p className="text-xs text-pesa-slate mb-4">Real mid-market exchange rate · Low transparent fees</p>
 
@@ -89,12 +89,12 @@ export default function ConvertCurrencyPage(){
                                 value={data.sendAmount}
                                 onChange={(e)=>updateData({sendAmount:e.target.value})}
                                 placeholder="0.00"
-                                className="flex-1 border border-pesa-slate/20 rounded-lg px-2 py-3 bg-gray-100 text-sm outline-none focus:border-pesa-charcoal"
+                                className="min-w-0 flex-1 border border-pesa-slate/20 rounded-lg px-2 py-3 bg-gray-100 text-sm outline-none focus:border-pesa-charcoal"
                             />
                             <select
                                 value={data.sendCurrency}
                                 onChange={(e)=>updateData({sendCurrency:e.target.value})}
-                                className="rounded-lg cursor-pointer border border-pesa-slate/20 px-2 py-3 text-sm outline-none bg-gray-100"
+                                className="w-24 shrink-0 rounded-lg cursor-pointer border border-pesa-slate/20 px-2 py-3 text-sm outline-none bg-gray-100"
                             >
                                 <option value="USD">USD</option>
                                 <option value="EUR">EUR</option>
@@ -122,9 +122,9 @@ export default function ConvertCurrencyPage(){
                                 value={recipientAmount.toFixed(2)}
                                 placeholder="0.00"
                                 readOnly
-                                className="flex-1 border border-pesa-slate/20 rounded-lg px-2 py-3 bg-gray-100 text-sm outline-none"
+                                className="min-w-0 flex-1 border border-pesa-slate/20 rounded-lg px-2 py-3 bg-gray-100 text-sm outline-none"
                             />
-                            <select className="rounded-lg border border-pesa-slate/20 rounded-lg px-2 py-3 bg-gray-100 outline-none cursor-pointer"
+                            <select className="w-24 shrink-0 rounded-lg border border-pesa-slate/20 px-2 py-3 text-sm bg-gray-100 outline-none cursor-pointer"
                                 value={data.recipientCurrency}
                                 onChange={(e)=>updateData({recipientCurrency:e.target.value})}
                             >
@@ -135,7 +135,7 @@ export default function ConvertCurrencyPage(){
                         </div>
                         {/**Exchange rate summary card */}
                         <div className="bg-gray-100 rounded-lg p-4 mb-4 space-y-2">
-                            <div className="flex justify-between text-sm">
+                            <div className="flex flex-wrap justify-between gap-x-2 gap-y-1 text-sm">
                                 <span
                                     className="flex items-center gap-1 text-pesa-charcoal font-medium"
                                 ><TrendingUp size={16}  />Exchange Rate <span className="text-pesa-slate font-normal">Locked</span></span>
@@ -156,16 +156,16 @@ export default function ConvertCurrencyPage(){
                                 type="button"
                                 onClick={handleConvert}
                                 disabled={isConverting || sendAmountNumber <=0}
-                                className="flex-1 rounded-lg bg-pesa-green py-2 text-sm font-medium text-white cursor-pointer disabled:cursor-not-allowed hover:bg-blue-900"
+                                className="min-w-0 flex-1 rounded-lg bg-pesa-green py-2 text-sm font-medium text-white cursor-pointer disabled:cursor-not-allowed hover:bg-blue-900"
                             >{isConverting ? "Converting..." : "Convert Now"}</button>
                             <button
                                 type="button"
-                                className="flex items-center gap-1 border border-pesa-slate/20 rounded-lg px-3 py-2 text-sm text-pesa-charcoal cursor-pointer hover:bg-gray-500 hover:text-black"
+                                className="flex shrink-0 items-center gap-1 whitespace-nowrap border border-pesa-slate/20 rounded-lg px-3 py-2 text-sm text-pesa-charcoal cursor-pointer hover:bg-gray-500 hover:text-black"
                             ><Lock size={14}/> Unlock Rate</button>
                         </div>
                     </div>
                     {/**Rate History Card section */}
-                    <div className="bg-white rounded-2xl border/15 p-6">
+                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-4 sm:p-6">
                         <h2 className="text-sm text-pesa-charcoal font-semibold">Rate History</h2>
                         <p className="text-xs text-pesa-slate mb-4">USD to EUR over the last 30 days</p>
                         <div className="bg-gray-100 rounded-lg h-40 flex items-center justify-center text-sm text-pesa-slate">
@@ -176,7 +176,7 @@ export default function ConvertCurrencyPage(){
                 {/**Right side column */}
                 <div className="space-y-4">
                     {/**Auto card section */}
-                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-6">
+                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-4 sm:p-6">
                         <h2 className="text-sm text-pesa-charcoal font-semibold">Auto-Convert</h2>
                         <p className="text-xs text-pesa-slate mb-4">Automatically convert when rate hits your target</p>
                         <label className="block text-sm text-pesa-slate font-semibold mb-1">Target Rate</label>
@@ -192,7 +192,7 @@ export default function ConvertCurrencyPage(){
                                 role="switch"
                                 aria-checked={data.autoConvertEnabled}
                                 onClick={()=>updateData({autoConvertEnabled: !data.autoConvertEnabled})}
-                                className={`relative inline-flex h-6 w-11 items-center cursor-pointer rounded-full transition-colors ${
+                                className={`relative inline-flex h-6 w-11 shrink-0 items-center cursor-pointer rounded-full transition-colors ${
                                     data.autoConvertEnabled ? "bg-pesa-green" :"bg-gray-300"
                                 }`}
                             >
@@ -205,7 +205,7 @@ export default function ConvertCurrencyPage(){
                         </div>
                     </div>
                     {/**Rates Card */}
-                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-6">
+                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-4 sm:p-6">
                         <h2 className="text-sm font-semibold text-pesa-slate">Rates Alerts</h2>
                         <p className="text-xs text-pesa-slate mb-4">Get notified of favorable rate changes</p>
                         <div className="flex items-center justify-between">
@@ -215,7 +215,7 @@ export default function ConvertCurrencyPage(){
                                 role="switch"
                                 aria-checked={data.rateAlertsEnabled}
                                 onClick={()=>updateData({rateAlertsEnabled: !data.rateAlertsEnabled})}
-                                className={`relative inline-flex h-6 w-11 items-center cursor-pointer rounded-full transition-colors ${
+                                className={`relative inline-flex h-6 w-11 shrink-0 items-center cursor-pointer rounded-full transition-colors ${
                                     data.rateAlertsEnabled ? "bg-pesa-green" :"bg-gray-300"
                                 }`}
                             >
@@ -230,12 +230,12 @@ export default function ConvertCurrencyPage(){
                         </div>
                     </div>
                     {/**Midmarket Card */}
-                    <div className="bg-green-900 text-white rounded-2xl p-6">
+                    <div className="bg-green-900 text-white rounded-2xl p-4 sm:p-6">
                         <h2 className=" flex items-center  gap-2 text-sm font-semibold"><AlertCircle size={16}/>Mid-Market Rate</h2>
                         <p className="text-xs  text-green-100">We use the real exchange rate — the one you see on Google. No hidden markups.</p>
                     </div>
                     {/**Fee Calculator */}
-                    <div className="bg-white rounded-2xl boder border-pesa-slate/15 p-6">
+                    <div className="bg-white rounded-2xl border border-pesa-slate/15 p-4 sm:p-6">
                         <h2 className="text-sm text-pesa-charcoal font-semibold mb-4">Fee Calculator</h2>
                         <div className="space-y-2 text-sm">
                             <div className="flex justify-between text-pesa-slate">
